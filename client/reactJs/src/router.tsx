@@ -5,8 +5,8 @@ import PublicLayout from "./components/PublicLayout";
 import PrivateLayout from "./components/PrivateLayout"; 
 
 // Views
-import Login from "./views/authentication/Login";
 import Home from "./views/authenticated/Home";
+import Signin from "./views/authentication/signin/Login";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     element: <PublicLayout />,
     children: [
       {
-        path: "/login",
-        element: <Login />,
+        path: "/signin",
+        element: <Signin />,
       }
     ],
   }
