@@ -7,6 +7,7 @@ import PrivateLayout from "./components/PrivateLayout";
 // Views
 import Home from "./views/authenticated/Home";
 import Signin from "./views/authentication/signin/Signin";
+import Signup from "./views/authentication/signup/signup";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: <Signin />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
       }
     ],
   }
