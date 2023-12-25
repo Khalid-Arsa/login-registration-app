@@ -1,6 +1,6 @@
 import React from "react";
 
-export function FormComponent({ children }: any) {
+export const FormComponent: React.FC<{ children: any }> = ({ children }) => {
   return (
     <React.Fragment>
       <div className="signin-signup-form animated fadeInDown">
@@ -10,4 +10,4 @@ export function FormComponent({ children }: any) {
       </div>
     </React.Fragment>
   );
-}
+};
