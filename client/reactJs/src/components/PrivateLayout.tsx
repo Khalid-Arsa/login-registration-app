@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
 
-function PrivateLayout() {
+const PrivateLayout: React.FC = () => {
   const token = false;
 
   if (!token) {
@@ -31,6 +31,6 @@ function PrivateLayout() {
       </div>
     </React.Fragment>
   );
-}
+};
 
 export default PrivateLayout;
