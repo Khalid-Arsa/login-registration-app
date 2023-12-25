@@ -5,7 +5,7 @@ function PrivateLayout() {
   const token = false;
 
   if (!token) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/signin" />;
   }
 
   return (
