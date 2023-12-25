@@ -6,7 +6,7 @@ import PrivateLayout from "./components/PrivateLayout";
 
 // Views
 import Home from "./views/authenticated/Home";
-import Signin from "./views/authentication/signin/Login";
+import Signin from "./views/authentication/signin/Signin";
 
 const router = createBrowserRouter([
   {
