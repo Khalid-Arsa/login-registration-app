@@ -5,6 +5,7 @@ import { TextInputComponent } from "../../../components/TextInputComponent";
 import { ButtonComponent } from "../../../components/ButtonComponent";
 
 const Signup: React.FC = () => {
+
   return (
     <React.Fragment>
       <FormComponent>
