@@ -1,23 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FormComponent } from "../../../components/FormComponent";
+import { Link } from "react-router-dom";
 import { TextInputComponent } from "../../../components/TextInputComponent";
 import { ButtonComponent } from "../../../components/ButtonComponent";
 
-const Signin: React.FC = () => {
+const Signup: React.FC = () => {
+
   return (
     <React.Fragment>
       <FormComponent>
-        <h1 className="title">Signin into your account</h1>
-        <TextInputComponent type="email" placeholder="Email" />
+        <h1 className="title">Signup for free</h1>
+        <TextInputComponent placeholder="Full Name" />
+        <TextInputComponent type="email" placeholder="Email Address" />
         <TextInputComponent type="password" placeholder="Password" />
-        <ButtonComponent label="Login" />
+        <TextInputComponent type="password" placeholder="Password Confirmation" />
+        <ButtonComponent label="Signup"/>
         <p className="message">
-          Not Registered? <Link to="/signup">Create an account</Link>
+          Already Registered? <Link to="/signin">Sign in</Link>
         </p>
       </FormComponent>
     </React.Fragment>
   );
 };
 
-export default Signin;
+export default Signup;
