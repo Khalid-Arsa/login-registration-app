@@ -10,7 +10,6 @@ const transport = logger.transport({
 // pino is to increase the performance of Node
 const log = logger(
   {
-    prettifier: true,
     base: {
       pid: false,
     },
