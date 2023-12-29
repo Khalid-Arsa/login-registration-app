@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { TextInputComponent } from "../../../components/TextInputComponent";
 import { ButtonComponent } from "../../../components/ButtonComponent";
 import { handleInputChange } from "../../../utils/helpers";
-import { useAuthState } from "../../../context/AuthContext";
+import { useAuthState } from "../../../lib/context/AuthContext";
 
 const Signup: React.FC = () => {
   const { formObject, setFormObject }: any = useAuthState();
