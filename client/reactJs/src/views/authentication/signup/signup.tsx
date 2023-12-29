@@ -7,14 +7,7 @@ import { handleInputChange } from "../../../utils/helpers";
 import { useAuthState } from "../../../lib/context/AuthContext";
 
 const Signup: React.FC = () => {
-  const { formObject, setFormObject }: any = useAuthState();
-  // const [error, setError] = useState(null);
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-
-    console.log("formObject: ", formObject);
-  };
+  const { formObject, setFormObject, handleSubmit }: any = useAuthState();
 
   return (
     <React.Fragment>

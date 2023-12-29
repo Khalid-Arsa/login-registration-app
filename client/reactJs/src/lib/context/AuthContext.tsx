@@ -2,7 +2,8 @@ import { createContext, useContext, useState } from "react";
 
 export const AuthContext: any = createContext({
   formObject: {},
-  setFormObject: () => {}
+  setFormObject: () => {},
+  handleSubmit: () => {}
 });
 
 export const AuthContextProvider = ({ children }: any) => {
@@ -16,8 +17,14 @@ export const AuthContextProvider = ({ children }: any) => {
     password: "",
     confirm_password: "",
   });
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    console.log("formObject: ", formObject);
+  };
   
-  return <AuthContext.Provider value={{ formObject, setFormObject }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ formObject, setFormObject, handleSubmit }}>{children}</AuthContext.Provider>
 }
 
 export const useAuthState = () => useContext(AuthContext);
