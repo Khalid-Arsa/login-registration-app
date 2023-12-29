@@ -1,27 +1,33 @@
 import axios from "axios";
-import { useStorage } from "./storage";
 
-const baseUrl = "http://localhost:1337";
-const token = useStorage.getItem("authToken")
-
-axios.defaults.baseURL = `${baseUrl}/api`;
 axios.defaults.headers.get["Accept"] = "application/json";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.patch["Accept"] = "application/json";
 axios.defaults.headers.delete["Accept"] = "application/json";
 
-// export const setAuthorizationHeader = (data: ILoginResponse) => {
-//     const authToken = `${data.token}`;
-
-//     useStorage.setItem('authToken', authToken);
-//     useStorage.setItem('user', JSON.stringify(data.data));
-//     axios.defaults.headers.common['Authorization'] = authToken;
-// };
-
-export default axios.create({
-  baseURL: `${baseUrl}/api`,
-  responseType: `json`,
-  headers: {
-    Authorization: token ? `Bearer ${token}` : "",
-  },
+const axiosClient = axios.create({
+  baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`,
 });
+
+axiosClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem("ACCESS_TOKEN");
+  config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+axiosClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const { response } = error;
+
+    if (response.status === 401) {
+      localStorage.removeItem("ACCESS_TOKEN");
+    }
+
+    throw error;
+  }
+);
+
+export default axiosClient;
