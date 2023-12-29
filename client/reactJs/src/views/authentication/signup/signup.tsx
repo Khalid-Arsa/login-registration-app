@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormComponent } from "../../../components/FormComponent";
 import { Link } from "react-router-dom";
 import { TextInputComponent } from "../../../components/TextInputComponent";
 import { ButtonComponent } from "../../../components/ButtonComponent";
 import { handleInputChange } from "../../../utils/helpers";
+import { useAuthState } from "../../../lib/context/AuthContext";
 
 const Signup: React.FC = () => {
-  const [formObject, setFormObject] = useState({
-    first_name: "",
-    last_name: "",
-    address: "",
-    phone_number: "",
-    role: "user",
-    email: "",
-    password: "",
-    confirm_password: "",
-  });
+  const { formObject, setFormObject }: any = useAuthState();
   // const [error, setError] = useState(null);
 
   const handleSubmit = (e: any) => {

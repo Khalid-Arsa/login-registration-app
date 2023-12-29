@@ -5,16 +5,6 @@ export const AuthContext: any = createContext({
   setFormObject: () => {}
 });
 
-export const authState = () => {
-  let context = useContext(AuthContext);
-
-  if (context === undefined) {
-    throw new Error("authState must used with in Auth Context Provider");
-  }
-
-  return context;
-};
-
 export const AuthContextProvider = ({ children }: any) => {
   const [formObject, setFormObject] = useState({
     first_name: "",
@@ -29,3 +19,5 @@ export const AuthContextProvider = ({ children }: any) => {
   
   return <AuthContext.Provider value={{ formObject, setFormObject }}>{children}</AuthContext.Provider>
 }
+
+export const useAuthState = () => useContext(AuthContext);
