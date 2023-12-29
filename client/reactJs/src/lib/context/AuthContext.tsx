@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import axiosClient from "../../utils/api";
 
 export const AuthContext: any = createContext({
   formObject: {},
@@ -21,7 +22,11 @@ export const AuthContextProvider = ({ children }: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    console.log("formObject: ", formObject);
+    axiosClient.post("/auth/signup", formObject)
+    .then((data: any) => {
+      console.log(data)
+    })
+    .catch((err) => console.log(err))
   };
   
   return <AuthContext.Provider value={{ formObject, setFormObject, handleSubmit }}>{children}</AuthContext.Provider>
