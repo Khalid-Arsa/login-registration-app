@@ -7,7 +7,7 @@ import { handleInputChange } from "../../../utils/helpers";
 import { useAuthState } from "../../../lib/context/AuthContext";
 
 const Signup: React.FC = () => {
-  const { formObject, setFormObject, handleSubmit }: any = useAuthState();
+  const { formObject, errors, setFormObject, handleSubmit }: any = useAuthState();
 
   return (
     <React.Fragment>
@@ -20,6 +20,7 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="First Name"
+          errors={errors.first_name}
         />
         <TextInputComponent
           type="text"
@@ -28,6 +29,7 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="Last Name"
+          errors={errors.last_name}
         />
         <TextInputComponent
           type="text"
@@ -36,6 +38,7 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="Address"
+          errors={errors.address}
         />
         <TextInputComponent
           type="text"
@@ -44,6 +47,7 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="Phone Number"
+          errors={errors.phone_number}
         />
         <TextInputComponent
           type="email"
@@ -52,6 +56,7 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="Email Address"
+          errors={errors.email}
         />
         <TextInputComponent
           type="password"
@@ -60,6 +65,7 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="Password"
+          errors={errors.password}
         />
         <TextInputComponent
           type="password"
@@ -68,8 +74,9 @@ const Signup: React.FC = () => {
             handleInputChange(e, setFormObject, formObject)
           }
           placeholder="Password Confirmation"
+          errors={errors.confirm_password}
         />
-        <ButtonComponent label="Signup" />
+        <ButtonComponent type="submit" label="Signup" />
         <p className="message">
           Already Registered? <Link to="/signin">Sign in</Link>
         </p>

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axiosClient from "../../utils/api";
+import { authValidation } from "../../utils/validation";
 
 export const AuthContext: any = createContext({
   formObject: {},
@@ -16,20 +17,31 @@ export const AuthContextProvider = ({ children }: any) => {
     role: "user",
     email: "",
     password: "",
-    confirm_password: "",
+    confirm_password: ""
+  });
+  const [errors, setErrors] = useState({
+    first_name: "",
+    last_name: "",
+    address: "",
+    phone_number: "",
+    role: "user",
+    email: "",
+    password: "",
+    confirm_password: ""
   });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    axiosClient.post("/auth/signup", formObject)
-    .then((data: any) => {
-      console.log(data)
-    })
-    .catch((err) => console.log(err))
+    authValidation(formObject, setErrors)
+    // axiosClient.post("/auth/signup", formObject)
+    // .then((data: any) => {
+    //   console.log(data)
+    // })
+    // .catch((err) => console.log(err))
   };
-  
-  return <AuthContext.Provider value={{ formObject, setFormObject, handleSubmit }}>{children}</AuthContext.Provider>
+
+  return <AuthContext.Provider value={{ formObject, errors, setFormObject, handleSubmit }}>{children}</AuthContext.Provider>
 }
 
 export const useAuthState = () => useContext(AuthContext);
