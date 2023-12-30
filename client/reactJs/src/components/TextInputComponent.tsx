@@ -5,6 +5,7 @@ interface Props {
   placeholder: string;
   name: string;
   handleInputChange: any;
+  errors: any;
 }
 
 export const TextInputComponent: React.FC<Props> = ({
@@ -12,6 +13,7 @@ export const TextInputComponent: React.FC<Props> = ({
   placeholder,
   name,
   handleInputChange,
+  errors
 }) => {
   return (
     <React.Fragment>
@@ -22,6 +24,7 @@ export const TextInputComponent: React.FC<Props> = ({
         placeholder={placeholder}
         className="input-text"
       />
+      <p>{errors}</p>
     </React.Fragment>
   );
 };

@@ -1,11 +1,14 @@
 import React from "react";
 
+type ButtonType = "submit" | "reset" | "button";
+
 export const ButtonComponent: React.FC<{
   label: string;
-}> = ({ label }) => {
+  type: ButtonType;
+}> = ({ label, type }) => {
   return (
     <React.Fragment>
-      <button className="btn btn-block">{label}</button>
+      <button type={type} className="btn btn-block">{label}</button>
     </React.Fragment>
   );
 };
