@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { TextInputComponent } from "../../../components/TextInputComponent";
 import { ButtonComponent } from "../../../components/ButtonComponent";
 import { handleInputChange } from "../../../utils/helpers";
-import { useAuthState } from "../../../lib/context/AuthContext";
+import { useUserState } from "../../../lib/context/UserContext";
 
 const Signup: React.FC = () => {
-  const { formObject, errors, setFormObject, handleSubmit }: any = useAuthState();
+  const { formObject, errors, setFormObject, handleSubmit }: any = useUserState();
 
   return (
     <React.Fragment>
