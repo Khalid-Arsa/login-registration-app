@@ -13,18 +13,24 @@ export const TextInputComponent: React.FC<Props> = ({
   placeholder,
   name,
   handleInputChange,
-  errors
+  errors,
 }) => {
   return (
     <React.Fragment>
-      <input
-        type={type}
-        name={name}
-        onChange={handleInputChange}
-        placeholder={placeholder}
-        className="input-text"
-      />
-      <p>{errors}</p>
+      <div className="input-group">
+        <input
+          type={type}
+          name={name}
+          onChange={handleInputChange}
+          placeholder={placeholder}
+          className="input-text"
+        />
+        {errors?.length > 0 && (
+          <span className="input-error-message">
+            {errors}
+          </span>
+        )}
+      </div>
     </React.Fragment>
   );
 };
