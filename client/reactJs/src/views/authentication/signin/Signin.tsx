@@ -7,7 +7,7 @@ import { ButtonComponent } from "../../../components/ButtonComponent";
 const Signin: React.FC = () => {
   return (
     <React.Fragment>
-      {/* <FormComponent>
+      <FormComponent>
         <h1 className="title">Signin into your account</h1>
         <TextInputComponent type="email" placeholder="Email" />
         <TextInputComponent type="password" placeholder="Password" />
@@ -15,7 +15,7 @@ const Signin: React.FC = () => {
         <p className="message">
           Not Registered? <Link to="/signup">Create an account</Link>
         </p>
-      </FormComponent> */}
+      </FormComponent>
     </React.Fragment>
   );
 };
