@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import axiosClient from "../../utils/api";
 import { SignupSchema } from "../../utils/validation";
+import { setTimeErrors, setTimeMessage } from "../../utils/helpers";
 
 export const UserContext: any = createContext({
   formObject: {},
@@ -33,7 +34,7 @@ export const UserContextProvider = ({ children }: any) => {
       err.inner.forEach((error: any) => {
         newErrors[error.path] = error.message;
       });
-      setErrors(newErrors);
+      setTimeMessage(newErrors, setErrors);
     }
   };
 

@@ -9,7 +9,7 @@ import { handleInputChange } from "../../../utils/helpers";
 const Signin: React.FC = () => {
   const { formObject, errors, setFormObject, handleSubmit }: any =
     useAuthState();
-
+  
   return (
     <React.Fragment>
       <FormComponent handleSubmit={handleSubmit}>
