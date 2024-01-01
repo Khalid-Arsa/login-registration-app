@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axiosClient from "../../utils/api";
-import { SignupSchema } from "../../utils/validation";
+import { SigninSchema } from "../../utils/validation";
 
 export const AuthContext: any = createContext({
   formObject: {},
@@ -10,21 +10,15 @@ export const AuthContext: any = createContext({
 
 export const AuthContextProvider = ({ children }: any) => {
   const [formObject, setFormObject] = useState({
-    first_name: "",
-    last_name: "",
-    address: "",
-    phone_number: "",
-    role: "user",
     email: "",
-    password: "",
-    confirm_password: "",
+    password: ""
   });
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await SignupSchema.validate(formObject, { abortEarly: false });
+      await SigninSchema.validate(formObject, { abortEarly: false });
       // Validation successful, handle form submission logic here
       console.log("Form submitted:", formObject);
     } catch (err: any) {

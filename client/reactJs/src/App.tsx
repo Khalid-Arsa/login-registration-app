@@ -7,9 +7,11 @@ import { UserContextProvider } from "./lib/context/UserContext";
 const App: React.FC = () => {
   return (
     <>
-      <UserContextProvider>
-        <RouterProvider router={router} />
-      </UserContextProvider>
+      <AuthContextProvider>
+        <UserContextProvider>
+          <RouterProvider router={router} />
+        </UserContextProvider>
+      </AuthContextProvider>
     </>
   );
 };
