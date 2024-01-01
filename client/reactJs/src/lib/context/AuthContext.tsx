@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import axiosClient from "../../utils/api";
 import { SigninSchema } from "../../utils/validation";
-import { setTimeErrors, setTimeMessage } from "../../utils/helpers";
+import { setTimeMessage } from "../../utils/helpers";
 
 export const AuthContext: any = createContext({
   formObject: {},
