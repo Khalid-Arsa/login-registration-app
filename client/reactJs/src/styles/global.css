@@ -59,7 +59,12 @@ body {
   transition: all 0.3s;
 }
 
+.input-group .input-text-error {
+  border-color: #b72424;
+}
+
 .input-group .input-error-message {
+  font-size: 13px;
   color: #b72424;
 }
 

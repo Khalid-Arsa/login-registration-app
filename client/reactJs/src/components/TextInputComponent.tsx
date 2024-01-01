@@ -23,12 +23,10 @@ export const TextInputComponent: React.FC<Props> = ({
           name={name}
           onChange={handleInputChange}
           placeholder={placeholder}
-          className="input-text"
+          className={`input-text ${errors?.length > 0 && "input-text-error"}`}
         />
         {errors?.length > 0 && (
-          <span className="input-error-message">
-            {errors}
-          </span>
+          <span className="input-error-message">{errors}</span>
         )}
       </div>
     </React.Fragment>
