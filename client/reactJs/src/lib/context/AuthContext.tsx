@@ -13,23 +13,30 @@ export const AuthContext: any = createContext({
 export const AuthContextProvider = ({ children }: any) => {
   const [formObject, setFormObject] = useState({
     email: "",
-    password: ""
+    password: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       await SigninSchema.validate(formObject, { abortEarly: false });
       // Validation successful, handle form submission logic here
-      console.log("Form submitted:", formObject);
+      axiosClient
+        .post("/auth/signin", formObject)
+        .then(({ data }) => {
+          console.log("Data: ", data);
+        })
+        .catch((err: any) => {
+          setErrors(err.response.data.message);
+        });
     } catch (err: any) {
       // Validation failed, update errors state
       const newErrors: any = {};
       err.inner.forEach((error: any) => {
         newErrors[error.path] = error.message;
       });
-      setErrors(newErrors)
+      setErrors(newErrors);
     }
   };
 

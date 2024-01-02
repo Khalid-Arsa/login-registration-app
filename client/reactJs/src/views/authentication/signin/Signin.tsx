@@ -9,11 +9,16 @@ import { handleInputChange } from "../../../utils/helpers";
 const Signin: React.FC = () => {
   const { formObject, errors, setErrors, setFormObject, handleSubmit }: any =
     useAuthState();
-
+    
   return (
     <React.Fragment>
       <FormComponent handleSubmit={handleSubmit}>
         <h1 className="title">Signin into your account</h1>
+        {typeof errors === "string" && (
+          <div className="alert">
+            <p>{errors}</p>
+          </div>
+        )}
         <TextInputComponent
           type="email"
           name="email"
