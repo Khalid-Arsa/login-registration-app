@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import axiosClient from "../../utils/api";
 import { SignupSchema } from "../../utils/validation";
-import { setTimeMessage } from "../../utils/helpers";
 
 export const UserContext: any = createContext({
   formObject: {},
+  errors: {},
+  setErrors: () => {},
   setFormObject: () => {},
   handleSubmit: () => {},
 });
@@ -34,13 +35,13 @@ export const UserContextProvider = ({ children }: any) => {
       err.inner.forEach((error: any) => {
         newErrors[error.path] = error.message;
       });
-      setTimeMessage(newErrors, setErrors);
+      setErrors(newErrors);
     }
   };
 
   return (
     <UserContext.Provider
-      value={{ formObject, errors, setFormObject, handleSubmit }}
+      value={{ formObject, errors, setErrors, setFormObject, handleSubmit }}
     >
       {children}
     </UserContext.Provider>

@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import axiosClient from "../../utils/api";
 import { SigninSchema } from "../../utils/validation";
-import { setTimeMessage } from "../../utils/helpers";
 
 export const AuthContext: any = createContext({
   formObject: {},
+  errors: {},
+  setErrors: () => {},
   setFormObject: () => {},
   handleSubmit: () => {},
 });
@@ -28,13 +29,13 @@ export const AuthContextProvider = ({ children }: any) => {
       err.inner.forEach((error: any) => {
         newErrors[error.path] = error.message;
       });
-      setTimeMessage(newErrors, setErrors);
+      setErrors(newErrors)
     }
   };
 
   return (
     <AuthContext.Provider
-      value={{ formObject, errors, setFormObject, handleSubmit }}
+      value={{ formObject, errors, setErrors, setFormObject, handleSubmit }}
     >
       {children}
     </AuthContext.Provider>
