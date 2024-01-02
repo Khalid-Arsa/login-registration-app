@@ -31,7 +31,7 @@ export const UserContextProvider = ({ children }: any) => {
       axiosClient
         .post("/auth/signup", formObject)
         .then(({ data }) => {
-          console.log("Data: ", data);
+          alert(JSON.stringify(data))
         })
         .catch((err: any) => {
           setErrors(err.response.data.message);
