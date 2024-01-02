@@ -21,12 +21,22 @@ export class UserEntity implements IUser {
   @Column({ type: "varchar", nullable: false })
   @IsNotEmpty({ message: 'Please provide a valid name' })
   @IsString({ message: "Name must be a string" })
-  firstName!: string;
+  first_name!: string;
 
   @Column({ type: "varchar", nullable: false })
   @IsNotEmpty({ message: 'Please provide a valid username' })
   @IsString({ message: "Username must be a string" })
-  lastName!: string;
+  last_name!: string;
+
+  @Column({ type: "varchar", nullable: false })
+  @IsNotEmpty({ message: 'Please provide a address' })
+  @IsString({ message: "Address must be a string" })
+  address!: string;
+
+  @Column({ type: "varchar", nullable: false })
+  @IsNotEmpty({ message: 'Please provide a phone number' })
+  @IsString({ message: "Phone number must be a string" })
+  phone_number!: string;
 
   @Column({ type: "varchar", nullable: false, unique: true })
   @IsNotEmpty({ message: 'Please provide a valid email' })

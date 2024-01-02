@@ -64,8 +64,10 @@ export class AuthService {
   async generateToken(user: UserEntity): Promise<string> {
     const payload = {
       id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
+      firstName: user.first_name,
+      lastName: user.last_name,
+      address: user.address,
+      phone_number: user.phone_number,
       email: user.email
     }
 
