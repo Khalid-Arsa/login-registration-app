@@ -7,7 +7,8 @@ import { handleInputChange } from "../../../utils/helpers";
 import { useUserState } from "../../../lib/context/UserContext";
 
 const Signup: React.FC = () => {
-  const { formObject, errors, setFormObject, handleSubmit }: any = useUserState();
+  const { formObject, errors, setErrors, setFormObject, handleSubmit }: any =
+    useUserState();
 
   return (
     <React.Fragment>
@@ -77,7 +78,7 @@ const Signup: React.FC = () => {
           errors={errors.confirm_password}
         />
         <ButtonComponent type="submit" label="Signup" />
-        <p className="message">
+        <p className="message" onClick={() => setErrors({})}>
           Already Registered? <Link to="/signin">Sign in</Link>
         </p>
       </FormComponent>

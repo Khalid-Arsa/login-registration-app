@@ -7,9 +7,9 @@ import { useAuthState } from "../../../lib/context/AuthContext";
 import { handleInputChange } from "../../../utils/helpers";
 
 const Signin: React.FC = () => {
-  const { formObject, errors, setFormObject, handleSubmit }: any =
+  const { formObject, errors, setErrors, setFormObject, handleSubmit }: any =
     useAuthState();
-  
+
   return (
     <React.Fragment>
       <FormComponent handleSubmit={handleSubmit}>
@@ -33,7 +33,7 @@ const Signin: React.FC = () => {
           errors={errors?.password}
         />
         <ButtonComponent type="submit" label="Login" />
-        <p className="message">
+        <p className="message" onClick={() => setErrors({})}>
           Not Registered? <Link to="/signup">Create an account</Link>
         </p>
       </FormComponent>
