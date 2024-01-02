@@ -14,6 +14,11 @@ const Signup: React.FC = () => {
     <React.Fragment>
       <FormComponent handleSubmit={handleSubmit}>
         <h1 className="title">Signup for free</h1>
+        {typeof errors === "string" && (
+          <div className="alert">
+            <p>{errors}</p>
+          </div>
+        )}
         <TextInputComponent
           type="text"
           name="first_name"

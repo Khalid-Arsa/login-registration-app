@@ -28,7 +28,14 @@ export const UserContextProvider = ({ children }: any) => {
     try {
       await SignupSchema.validate(formObject, { abortEarly: false });
       // Validation successful, handle form submission logic here
-      console.log("Form submitted:", formObject);
+      axiosClient
+        .post("/auth/signup", formObject)
+        .then(({ data }) => {
+          console.log("Data: ", data);
+        })
+        .catch((err: any) => {
+          setErrors(err.response.data.message);
+        });
     } catch (err: any) {
       // Validation failed, update errors state
       const newErrors: any = {};
