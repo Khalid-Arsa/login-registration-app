@@ -124,6 +124,14 @@ body {
   background: #5b08a7;
 }
 
+.alert {
+  padding: 1rem;
+  background-color: #ff4040;
+  color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 /* signup and signin form */
 .signin-signup-form {
   height: 100vh;
