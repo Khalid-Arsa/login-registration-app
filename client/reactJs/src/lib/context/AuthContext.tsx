@@ -25,7 +25,7 @@ export const AuthContextProvider = ({ children }: any) => {
       axiosClient
         .post("/auth/signin", formObject)
         .then(({ data }) => {
-          console.log("Data: ", data);
+          alert(JSON.stringify(data))
         })
         .catch((err: any) => {
           setErrors(err.response.data.message);
