@@ -38,6 +38,11 @@ export class UserEntity implements IUser {
   @IsString({ message: "Phone number must be a string" })
   phone_number!: string;
 
+  @Column({ type: "varchar", nullable: false })
+  @IsNotEmpty({ message: 'Please provide a role' })
+  @IsString({ message: "Role must be a string" })
+  role!: string;
+
   @Column({ type: "varchar", nullable: false, unique: true })
   @IsNotEmpty({ message: 'Please provide a valid email' })
   @IsEmail({}, { message: 'Invalid email address' })
