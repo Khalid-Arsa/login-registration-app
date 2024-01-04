@@ -102,6 +102,10 @@ export class AuthService {
         return new AppError('Username and email must be unique.', 400)
       }
 
+      if (newUser.confirm_password !== newUser.password) {
+        return new AppError("Password don't match", 400);
+      };
+
       const error = await validate(newUser);
 
       if (error.length > 0) {

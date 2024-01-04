@@ -6,6 +6,7 @@ export interface IUser {
   phone_number: string;
   email: string;
   password: string;
+  confirm_password?: string;
   createdAt: Date;
   updatedAt: Date;
 }
