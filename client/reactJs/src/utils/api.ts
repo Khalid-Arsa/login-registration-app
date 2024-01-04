@@ -6,7 +6,7 @@ axios.defaults.headers.patch["Accept"] = "application/json";
 axios.defaults.headers.delete["Accept"] = "application/json";
 
 const axiosClient = axios.create({
-  baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`,
+  baseURL: `${import.meta.env.VITE_API_BASE_URL_NEST}/api`,
 });
 
 axiosClient.interceptors.request.use((config) => {
